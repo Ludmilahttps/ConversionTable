@@ -1,31 +1,31 @@
-#ifndef PERSON_HPP
-#define PERSON_HPP
+#ifndef CYPHER_HPP
+#define CYPHER_HPP
 
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <string>
-#include "ConversionTable.cpp"
+#include "convTable.hpp"
 
 using namespace std;
 
-class Crypt
+class Cypher
 {
-    // atributos -> estados(variaveis)
 private:
-    int disp;
-    // metodos -> comportamentos(funções)
+    string *m_input;
+    vector<pair<char, char>> Table;
+    string *encrypted;
+    string *decrypted;
+    ConvTable *ConvertTable;
+
 public:
-    // constructor
-    Crypt(); // sempre com o mesmo nome da classe(sem retorno)
+    Cypher();
+    Cypher(string input);
 
-    // metodos de acesso -- Getters and Setters
-    // Setters - atualizar o conteudo das variaveis 'membros' criadas
-    vector<pair<char, char>> Crypt::CreateConvTable(int, vector<pair<char, char>>);
-    string Crypt::DecryptText(string, vector<pair<char, char>>);
-    string Crypt::EncryptText(string, vector<pair<char, char>>);
+    ~Cypher();
 
-    // Getters
+    void ShowInfo();
+    string EncryptText(string);
+    string DecryptText(string);
+    // string callEncryptText();
 };
 
 #endif
