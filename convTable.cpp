@@ -3,12 +3,11 @@
 
 ConvTable::ConvTable()
 {
-    cout << "initializing person" << endl;
 }
 
 ConvTable::~ConvTable()
 {
-    cout << "destructor called" << endl;
+    cout << "destructor ConvTable called" << endl;
 }
 
 vector<pair<char, char>> ConvTable::CreateTable(int num)

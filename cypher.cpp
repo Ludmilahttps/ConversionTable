@@ -1,28 +1,25 @@
 #include "cypher.hpp"
 #include "convTable.hpp"
 
-Cypher::Cypher()
+Cypher::Cypher(int code) : Cypher()
 {
-    cout << "initializing person" << endl;
-
-    m_input = NULL;
-}
-
-Cypher::Cypher(string input) : Cypher()
-{
-    this->m_input = new string;
-    *this->m_input = input;
-    int num = 1;
-
     ConvertTable = new ConvTable();
 
-    Table = ConvertTable->CreateTable(num);
-    ConvertTable->ShowInfo(Table);
+    int sum = 0, x = code;
+    while (x > 0)
+    {
+        sum += x % 10;
+        x /= 10;
+    } // soma todos os numeros da matricula
+    code = sum - 10;
+
+    Table = ConvertTable->CreateTable(code);
+    // ConvertTable->ShowInfo(Table);
 }
 
 Cypher::~Cypher()
 {
-    cout << "destructor called" << endl;
+    cout << "destructor Cypher called" << endl;
 
     if (m_input)
         delete m_input;
@@ -32,14 +29,32 @@ Cypher::~Cypher()
 
 void Cypher::ShowInfo()
 {
-    if (m_input)
+    ConvertTable->ShowInfo(Table);
+    return;
+}
+
+void Cypher::NewConversionTable(int code)
+{
+    ConvertTable = new ConvTable();
+
+    int sum = 0, x = code;
+    while (x > 0)
     {
-        cout << "input: " << *this->m_input << endl;
-    }
+        sum += x % 10;
+        x /= 10;
+    } // soma todos os numeros da matricula
+    code = sum - 10;
+
+    Table = ConvertTable->CreateTable(code);
+    // ConvertTable->ShowInfo(Table);
+
 }
 
 string Cypher::EncryptText(string input)
 {
+    this->m_input = new string;
+    *this->m_input = input;
+
     string result;
     for (size_t i = 0; i < input.length(); i++)
     {
@@ -67,10 +82,3 @@ string Cypher::DecryptText(string input)
     }
     return result;
 }
-
-// string Cypher::callEncryptText()
-// {
-//     string word;
-//     word = EncryptText();
-//     return word;
-// }
