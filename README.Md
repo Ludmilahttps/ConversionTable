@@ -17,11 +17,3 @@ Converta a solução levando em consideração:
     6. A estratégia para gerar a tabela de conversão é livre, e pode envolver outras estratégias de sua escolha, desde que usada combinada com seu código de aluno. Lembre-se que deve ser reversível para poder decriptar os textos.
     
     7. Elaborar um menu.
-
-Entregável no Moodle:
-    - Código fonte, considerando somente cpp’s e hpp’s (ou .h) do programa desenvolvido. Deve compilar e ser possível de testes.
-    - Vídeo de no máximo 5 minutos (ou link permanente) demonstrando a estratégia utilizada no código, e sua execução.
-
-Dicas:
-    Alocar memória e desalocar apropriadamente com new e delete
-    Alguém disse: Debug salva vidas….
